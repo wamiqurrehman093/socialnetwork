@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
+    background-color: #F6F1F1;
 }
 
 input {
@@ -20,7 +21,7 @@ img {
 }
 
 header {
-    background-color: #FF6347;
+    background-color: #19A7CE;
     color: white;
     min-height: fit-content;
     padding: 8px;
@@ -69,7 +70,7 @@ nav a {
 }
 
 #submit-post {
-    background-color: #DDA397;
+    background-color: #AFD3E2;
     display: grid;
     grid-template-columns: 70px 1fr;
     padding: 8px;
