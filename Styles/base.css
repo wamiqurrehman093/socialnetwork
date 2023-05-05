@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input {
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 4px;
+    border: 0px;
+    font-size: 20px;
+}
+
+input:focus {
+    outline: none;
+}
+
+header {
+    background-color: tomato;
+    color: white;
+    min-height: fit-content;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 24px;
+}
+
+header h1 {
+    margin: 0px;
+    align-self: center;
+}
+
+#search-form {
+    justify-self: stretch;
+    align-self: center;
+}
+
+#search-field {
+    width: 80%;
+    height: 28px;
+    padding-left: 8px;
+}
+
+#search-button {
+    width: 16%;
+    height: 34px;
+}
+
+nav {
+    align-self: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+    padding: 0px 24px;
+}
