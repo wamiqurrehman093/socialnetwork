@@ -1,7 +1,21 @@
+/* 
+[Color Palette Codes From Light To Dark]
+    Background:
+        #F6F1F1
+        #AFD3E2
+        #19A7CE
+        #146C94
+    Buttons:
+        #F4EEE0
+        #6D5D6E
+        #4F4557
+        #393646
+*/
 body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
     background-color: #F6F1F1;
+    color: white;
 }
 
 input {
@@ -20,9 +34,62 @@ img {
     border: 2px solid black;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    align-self: center;
+    height: 40px;
+    width: 72px;
+    font-size: 20px;
+    border-radius: 16px;
+}
+
+button, input[type=button], input[type=submit] {
+    background-color: #EEEEEE;
+    color: black;
+}
+
+button:hover, input[type=button]:hover, input[type=submit]:hover {
+    background-color: #FFFFFF;
+}
+
+button:active, input[type=button]:active, input[type=submit]:active {
+    background-color: #DDDDDD;
+}
+
+a {
+    text-decoration: none;
+    color: #EEEEEE;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+a:hover {
+    color: #FFFFFF;
+}
+
+a:active {
+    color: #DDDDDD;
+}
+
+nav a:hover {
+    color: #FF6000;
+}
+
+nav a:active {
+    color: #DD6000;
+}
+
+.current-page {
+    text-decoration: underline;
+}
+
 header {
-    background-color: #19A7CE;
-    color: white;
+    background-color: #146C94;
     min-height: fit-content;
     padding: 8px;
     display: grid;
@@ -55,22 +122,35 @@ nav {
 }
 
 nav a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 28px;
     padding: 0px 24px;
 }
 
 /* header ends */
 
-#feed {
+#content {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
 }
 
-#submit-post {
+#add-people h2, .full-page-link {
+    text-align: center;
+}
+
+.full-page-link a {
+    font-size: 24px;
+}
+
+#feed {
     background-color: #AFD3E2;
+    height: 100%;
+    border: 1px solid white;
+    border-top: 0px;
+    border-bottom: 0px;
+}
+
+/* content ends */
+
+#submit-post {
     display: grid;
     grid-template-columns: 70px 1fr;
     padding: 8px;
@@ -80,6 +160,7 @@ nav a {
 
 #submit-post img {
     width: 64px;
+    height: 64px;
 }
 
 #submit-post-inputs {
@@ -93,4 +174,27 @@ nav a {
 #submit-post input {
     height: 28px;
     margin-top: 2px;
+}
+
+/* Submit post ends here */
+
+#add-people {
+    padding: 0px 8px 16px 8px;
+    background-color: #19A7CE;
+}
+
+.user-to-add {
+    display: grid;
+    grid-template-columns: 70px 4fr 1fr;
+    column-gap: 8px;
+    margin-bottom: 8px;
+}
+.user-to-add h4 {
+    font-size: 24px;
+    align-self: center;
+    margin: 0;
+}
+.user-to-add img {
+    width: 64px;
+    height: 64px;
 }

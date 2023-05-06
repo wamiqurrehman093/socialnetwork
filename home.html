@@ -17,7 +17,7 @@
                 <input id="search-button" type="submit">
             </form>
             <nav>
-                <a href="#">Home</a>
+                <a class="current-page" href="#">Home</a>
                 <a href="#">Friends</a>
                 <a href="#">Chat</a>
                 <a href="#">Profile</a>
@@ -25,16 +25,48 @@
                 <a href="#">Logout</a>
             </nav>
         </header>
-        <div id="feed">
-            <div id="submit-post">
-                <img src="Images/Naruto1.jpg">
-                <div id="submit-post-inputs">
-                    <input id="submit-post-text" type="text" placeholder="Your post...">
-                    <input id="submit-post-button" type="submit" value="Post">
-                    <input id="upload-media" type="button" value="Upload Images/Videos">
-                    <input id="cancel-post" type="button" value="Cancel">
+        <div id="content">
+            <div id="add-people">
+                <h2>People you may know</h2>
+                <ul>
+                    <li class="user-to-add">
+                        <img src="Images/Sasuke3.webp">
+                        <h4>Sasuke Uchiha</h4>
+                        <button>Add</button>
+                    </li>
+                    <li class="user-to-add">
+                        <img src="Images/Gintoki1.webp">
+                        <h4>Gintoki Sakata</h4>
+                        <button>Add</button>
+                    </li>
+                    </li>
+                    <li class="user-to-add">
+                        <img src="Images/Shouko2.jpg">
+                        <h4>Shouko Nishimiya</h4>
+                        <button>Add</button>
+                    </li>
+                    <li class="user-to-add">
+                        <img src="Images/Levi1.jpg">
+                        <h4>Levi Ackerman</h4>
+                        <button>Add</button>
+                    </li>
+                    <li class="full-page-link">
+                        <a href="#">[View More]</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="feed">
+                <div id="submit-post">
+                    <img src="Images/Naruto1.jpg">
+                    <div id="submit-post-inputs">
+                        <input id="submit-post-text" type="text" placeholder="Your post...">
+                        <input id="submit-post-button" type="submit" value="Post">
+                        <input id="upload-media" type="button" value="Upload Images/Videos">
+                        <input id="cancel-post" type="button" value="Cancel">
+                    </div>
                 </div>
             </div>
+            <div id="follow-pages"></div>
         </div>
     </body>
 </html>
