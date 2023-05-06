@@ -216,7 +216,7 @@ nav a {
 .post {
     background-color: #EEEEEE;
     color: #111111;
-    padding: 8px 8px 16px 0px;
+    padding: 8px 8px 8px 0px;
     border-radius: 16px;
     margin: 8px 16px;
 }
@@ -269,6 +269,13 @@ nav a {
 .heart-post {
     width: 48px;
     border: 0px;
+    content: url(".././Images/HeartIconNormal.png");
+}
+
+.heart-post-pressed {
+    width: 48px;
+    border: 0px;
+    content: url(".././Images/HeartIconPressed.png");
 }
 
 .post-comment {
