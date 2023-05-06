@@ -18,6 +18,10 @@ body {
     color: white;
 }
 
+p {
+    margin: 0;
+}
+
 input {
     font-family: 'Courier New', Courier, monospace;
     border-radius: 4px;
@@ -47,7 +51,7 @@ ul {
 button{
     align-self: center;
     height: 40px;
-    width: 72px;
+    min-width: 72px;
     font-size: 20px;
     border-radius: 16px;
 }
@@ -80,11 +84,11 @@ a:active {
     color: #DDDDDD;
 }
 
-header a:hover {
+header a:hover, .tag:hover {
     color: #FF6000;
 }
 
-header a:active {
+header a:active, .tag:active {
     color: #DD6000;
 }
 
@@ -198,8 +202,74 @@ nav a {
     align-self: center;
     margin: 0;
 }
-.user-to-add img, #submit-post img {
+.user-to-add img, #submit-post img, .post-author-pic, .post-dropdown-icon{
     width: 64px;
     height: auto;
     max-height: 96px;
+}
+
+#recent-posts {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.post {
+    background-color: #EEEEEE;
+    color: #111111;
+    padding: 8px 8px 16px 0px;
+    border-radius: 16px;
+    margin: 8px 16px;
+}
+
+.post-meta-data {
+    display: grid;
+    grid-template-columns: 70px 1fr 70px;
+    align-items: center;
+    padding: 8px 8px;
+    column-gap: 8px;
+}
+
+.post-author-name {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.tag {
+    color: #222222;
+    font-size: 18px;
+}
+
+.post-image {
+    max-width: 768px;
+    justify-self: center;
+}
+.post-text {
+    padding-left: 76px;
+    margin: 8px 0px;
+}
+.post-data {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.post-dropdown-icon {
+    border: 0px;
+    width: 28px;
+    height: 20px;
+    margin-left: 32px;
+}
+
+.post-reaction-controls {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    margin: 8px 80px;
+    gap: 16px;
+}
+
+.heart-post {
+    width: 48px;
+    border: 0px;
+}
+
+.post-comment {
 }
