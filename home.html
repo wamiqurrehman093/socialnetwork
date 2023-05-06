@@ -11,14 +11,14 @@
     </head>
     <body>
         <header>
-            <h1>Anime Social Network!</h1>
+            <h1><a class="current-page" href="#">Anime Social Network!</a></h1>
             <form id="search-form">
                 <input id="search-field" type="text" placeholder="search...">
                 <input id="search-button" type="submit">
             </form>
             <nav>
-                <a class="current-page" href="#">Home</a>
                 <a href="#">Friends</a>
+                <a href="#">Groups</a>
                 <a href="#">Chat</a>
                 <a href="#">Profile</a>
                 <a href="#">Settings</a>
@@ -26,34 +26,65 @@
             </nav>
         </header>
         <div id="content">
-            <div id="add-people">
-                <h2>People you may know</h2>
-                <ul>
-                    <li class="user-to-add">
-                        <img src="Images/Sasuke3.webp">
-                        <h4>Sasuke Uchiha</h4>
-                        <button>Add</button>
-                    </li>
-                    <li class="user-to-add">
-                        <img src="Images/Gintoki1.webp">
-                        <h4>Gintoki Sakata</h4>
-                        <button>Add</button>
-                    </li>
-                    </li>
-                    <li class="user-to-add">
-                        <img src="Images/Shouko2.jpg">
-                        <h4>Shouko Nishimiya</h4>
-                        <button>Add</button>
-                    </li>
-                    <li class="user-to-add">
-                        <img src="Images/Levi1.jpg">
-                        <h4>Levi Ackerman</h4>
-                        <button>Add</button>
-                    </li>
-                    <li class="full-page-link">
-                        <a href="#">[View More]</a>
-                    </li>
-                </ul>
+            <div id="social-suggestions">
+                <div id="add-people">
+                    <h2>People you may know</h2>
+                    <ul>
+                        <li class="user-to-add">
+                            <img src="Images/Luffy1.jpeg">
+                            <h4>Monkey D. Luffy</h4>
+                            <button>Add</button>
+                        </li>
+                        <li class="user-to-add">
+                            <img src="Images/Gintoki1.webp">
+                            <h4>Gintoki Sakata</h4>
+                            <button>Add</button>
+                        </li>
+                        </li>
+                        <li class="user-to-add">
+                            <img src="Images/Shouko2.jpg">
+                            <h4>Shouko Nishimiya</h4>
+                            <button>Add</button>
+                        </li>
+                        <li class="user-to-add">
+                            <img src="Images/Levi1.jpg">
+                            <h4>Levi Ackerman</h4>
+                            <button>Add</button>
+                        </li>
+                        <li class="full-page-link">
+                            <a href="#">[View More]</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="join-groups">
+                    <h2>Recommended Groups</h2>
+                    <ul>
+                        <li class="user-to-add">
+                            <img src="Images/TeamRocket3.jpg">
+                            <h4>Team Rocket</h4>
+                            <button>Join</button>
+                        </li>
+                        <li class="user-to-add">
+                            <img src="Images/SurveyCorps2.jpg">
+                            <h4>Survey Corps</h4>
+                            <button>Join</button>
+                        </li>
+                        </li>
+                        <li class="user-to-add">
+                            <img src="Images/Akatsuki1.webp">
+                            <h4>Akatsuki</h4>
+                            <button>Join</button>
+                        </li>
+                        <li class="user-to-add">
+                            <img src="Images/StrawHatPirates1.webp">
+                            <h4>Straw Hat Pirates</h4>
+                            <button>Join</button>
+                        </li>
+                        <li class="full-page-link">
+                            <a href="#">[View More]</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div id="feed">
                 <div id="submit-post">
@@ -66,7 +97,6 @@
                     </div>
                 </div>
             </div>
-            <div id="follow-pages"></div>
         </div>
     </body>
 </html>

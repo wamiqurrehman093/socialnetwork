@@ -25,6 +25,10 @@ input {
     padding-left: 8px;
 }
 
+h2 {
+    font-size: 28px;
+}
+
 input:focus {
     outline: none;
 }
@@ -76,11 +80,11 @@ a:active {
     color: #DDDDDD;
 }
 
-nav a:hover {
+header a:hover {
     color: #FF6000;
 }
 
-nav a:active {
+header a:active {
     color: #DD6000;
 }
 
@@ -132,7 +136,7 @@ nav a {
     grid-template-columns: 1fr 2fr 1fr;
 }
 
-#add-people h2, .full-page-link {
+#social-suggestions h2, .full-page-link {
     text-align: center;
 }
 
@@ -158,11 +162,6 @@ nav a {
     align-items: center;
 }
 
-#submit-post img {
-    width: 64px;
-    height: 64px;
-}
-
 #submit-post-inputs {
     display: grid;
     grid-template-columns: 10fr 1fr;
@@ -178,23 +177,29 @@ nav a {
 
 /* Submit post ends here */
 
-#add-people {
-    padding: 0px 8px 16px 8px;
+#social-suggestions {
     background-color: #19A7CE;
+    padding-bottom: 16px;
+}
+
+#social-suggestions li {
+    margin-bottom: 8px;
+    margin-left: 8px;
+    padding: 0px 8px 8px 8px;
 }
 
 .user-to-add {
     display: grid;
     grid-template-columns: 70px 4fr 1fr;
     column-gap: 8px;
-    margin-bottom: 8px;
 }
 .user-to-add h4 {
     font-size: 24px;
     align-self: center;
     margin: 0;
 }
-.user-to-add img {
+.user-to-add img, #submit-post img {
     width: 64px;
-    height: 64px;
+    height: auto;
+    max-height: 96px;
 }
