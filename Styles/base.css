@@ -60,6 +60,7 @@ button{
     min-width: 72px;
     font-size: 20px;
     border-radius: 16px;
+    padding: 0px 16px;
 }
 
 button, input[type=button], input[type=submit] {
@@ -314,4 +315,13 @@ nav a {
 }
 
 .post-comment {
+}
+
+.post-reaction-control {
+    display: grid;
+    grid-template-columns: auto auto;
+    border: 0px solid black;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
 }
