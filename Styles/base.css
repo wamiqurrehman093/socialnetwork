@@ -217,7 +217,7 @@ nav a {
     align-self: center;
     margin: 0;
 }
-.user-to-add img, #submit-post img, .post-author-pic, .post-dropdown-icon{
+.user-to-add img, #submit-post img, .post-author-pic, .post-dropdown-icon, .submit-comment-section img {
     width: 64px;
     height: auto;
     max-height: 96px;
@@ -314,9 +314,6 @@ nav a {
     content: url(".././Images/HeartIconPressedHover.png");
 }
 
-.post-comment {
-}
-
 .post-reaction-control {
     display: grid;
     grid-template-columns: auto auto;
@@ -324,4 +321,27 @@ nav a {
     align-items: center;
     gap: 8px;
     font-size: 20px;
+}
+
+.comment-section {
+    background-color: #DDDDDD;
+    margin: 8px 72px;
+    padding: 16px 0px;
+    border-radius: 16px;
+    display: none;
+}
+
+.submit-comment-section {
+    display: grid;
+    grid-template-columns: 70px auto;
+    gap: 8px;
+    margin: 8px 16px;
+}
+
+.submit-comment-section form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-self: center;
+    height: 40px;
+    gap: 8px;
 }
