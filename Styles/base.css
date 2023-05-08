@@ -217,7 +217,7 @@ nav a {
     align-self: center;
     margin: 0;
 }
-.user-to-add img, #submit-post img, .post-author-pic, .post-dropdown-icon, .submit-comment-section img {
+.user-to-add img, #submit-post img, .post-author-pic, .post-dropdown-icon, .submit-comment-section img, .comment-author-pic {
     width: 64px;
     height: auto;
     max-height: 96px;
@@ -236,7 +236,7 @@ nav a {
     display: none;
 }
 
-.post {
+.post{
     background-color: #EEEEEE;
     color: #111111;
     padding: 8px 8px 8px 0px;
@@ -244,7 +244,7 @@ nav a {
     margin: 0px 16px;
 }
 
-.post-meta-data {
+.post-meta-data, .comment-meta-data {
     display: grid;
     grid-template-columns: 70px 1fr 70px;
     align-items: center;
@@ -275,7 +275,7 @@ nav a {
     padding-left: 76px;
     margin: 8px 0px;
 }
-.post-data {
+.post-data, .comment-data {
     display: grid;
     grid-template-columns: auto;
 }
@@ -344,4 +344,22 @@ nav a {
     align-self: center;
     height: 40px;
     gap: 8px;
+}
+
+.comment-image {
+    max-width: 640px;
+    justify-self: center;
+}
+
+.comment-text {
+    padding-left: 76px;
+    margin: 8px 0px;
+}
+
+.comment {
+    background-color: #EEEEEE;
+    color: #111111;
+    padding: 8px 8px 16px 0px;
+    border-radius: 16px;
+    margin: 0px 16px 16px 16px;
 }
