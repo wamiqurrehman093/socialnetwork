@@ -356,7 +356,7 @@ nav a {
 .submit-comment-text {
     
 }
-.submit-comment, .cancel-comment {
+.submit-comment-button, .cancel-comment-button {
     align-self: center;
     width: 120px;
 }

@@ -38,32 +38,9 @@ function processLike(likeButton, likeLabel) {
 /* Post Comment Control */
 
 function setupCommentButtons() {
-    var openCommentButtons = $(".open-comment-section");
-    var posts = $(".post");
-    var submit_comment_buttons = $(".submit-comment");
-
     setupOpenCommentSectionButtons();
-
-    for (var i = 0; i < openCommentButtons.length; i++) {
-        var comment_section = posts[i].getElementsByClassName("comment-section")[0];
-        submit_comment_buttons[i].addEventListener("click", SubmitComment, false);
-        var submit_comment_section = comment_section.getElementsByClassName("submit-comment-section")[0];
-        var post_comments = comment_section.getElementsByClassName("post-comments")[0];
-        var comment_form = submit_comment_section.getElementsByTagName("form")[0];
-        comment_form.addEventListener("submit", SubmitComment, false);
-        var submit_comment_button = comment_form.getElementsByClassName("submit-comment")[0];
-        submit_comment_button.post_comments = post_comments;
-        submit_comment_button.comment_form = comment_form;
-        
-        var media_file_button = comment_form.getElementsByClassName("media-file")[0];
-        media_file_button.addEventListener("change", (event) => {
-            const [file] = event.target.files;
-            const {name: fileName, size} = file;
-            const fileSize = (size / 1000).toFixed(2);
-            const fileNameAndSize = `${fileName} - ${fileSize}KB`;
-            event.target.nextElementSibling.innerText = fileNameAndSize;
-        });
-    }
+    setupMediaFileButtons();
+    setupSubmitCommentButtons();
 }
 
 function setupOpenCommentSectionButtons() {
@@ -77,37 +54,60 @@ function setupOpenCommentSectionButtons() {
     }
 }
 
+function setupMediaFileButtons(){
+    var mediaFileButtons = $(".media-file");
+    for (var i = 0; i < mediaFileButtons.length; i++) {
+        var mediaFileButton = mediaFileButtons[i];
+        mediaFileButton.addEventListener("change", (event) => {
+            const [file] = event.target.files;
+            const { name: fileName, size } = file;
+            const fileSize = (size / 1000).toFixed(2);
+            const fileNameAndSize = `${fileName} - ${fileSize}KB`;
+            event.target.nextElementSibling.innerText = fileNameAndSize;
+        });
+    }
+}
 
-function SubmitComment(event) {
-    event.preventDefault();
-    var comment_form = event.target.comment_form;
-    var comment_text = comment_form.querySelector(".submit-comment-text");
-    var media_file = comment_form.getElementsByClassName("media-file")[0];
-    if (comment_text.value === "" && media_file.files.length === 0) {
-        return console.log("Empty form!");
+function setupSubmitCommentButtons(){
+    var submitCommentButtons = $(".submit-comment-button");
+    for (var i = 0; i < submitCommentButtons.length; i++){
+        submitCommentButtons[i].addEventListener("click", function (event) {
+            event.preventDefault();
+
+            var submitCommentButton = $(this);
+            var postID = "#" + submitCommentButton.attr("data-post-id");
+
+            var comment_text = $(postID + " .submit-comment-text")[0];
+            var media_file = $(postID + " .media-file")[0];
+            if (comment_text.value === "" && media_file.files.length === 0)
+                return console.log("Empty form!");
+            var fileName = "";
+            var template_id = "#comment-template";
+            if (media_file.files.length > 0) {
+                template_id = "#image-comment-template";
+                var [file] = media_file.files;
+                fileName = file.name;
+            }
+            var dateString = getDateString();
+            var data = {
+                author: { name: "Naruto Uzumaki", image: "Naruto1.jpg" },
+                comment: { date: dateString, text: comment_text.value, image: fileName }
+            };
+            var template = Handlebars.compile($(template_id).html());
+            var filled = template(data);
+            $(postID + " .post-comments")[0].insertAdjacentHTML("beforeend", filled);
+            media_file.value = "";
+            comment_text.value = "";
+            $(postID + " .media-file-label").html("Upload Media");
+        });
     }
-    var fileName = "";
-    var template_id = "#comment-template";
-    if (media_file.files.length > 0) {
-        template_id = "#image-comment-template";
-        var [file] = media_file.files;
-        fileName = file.name;
-    }
+}
+
+function getDateString() {
     var currentDate = new Date();
-    var dateString = (
-        (currentDate.getHours() > 12) ? (currentDate.getHours() - 12) : 
-        (currentDate.getHours())) + ":" + currentDate.getMinutes() + " " + 
-        ((currentDate.getHours > 12) ? ('PM') : ('AM')) + ", " + 
-        currentDate.getDate() + " " + months[currentDate.getMonth()] + 
-        " " + currentDate.getFullYear();
-    var data = {
-        author: {name: "Naruto Uzumaki", image: "Naruto1.jpg"},
-        comment: {date: dateString, text:comment_text.value, image: fileName}
-    };
-    var template = Handlebars.compile(document.querySelector(template_id).innerHTML);
-    var filled = template(data);
-    event.target.post_comments.insertAdjacentHTML("beforeend", filled);
-    media_file.value = "";
-    comment_text.value = "";
-    comment_form.querySelector(".media-file-label").innerText = "Upload Media";
+    return ((currentDate.getHours() > 12) ? (currentDate.getHours() - 12) :
+            (currentDate.getHours())) + ":" + currentDate.getMinutes() + " " +
+            ((currentDate.getHours > 12) ? ('PM') : ('AM')) + ", " +
+            currentDate.getDate() + " " + months[currentDate.getMonth()] +
+            " " + currentDate.getFullYear();
 }
