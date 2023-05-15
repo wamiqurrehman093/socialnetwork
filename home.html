@@ -8,6 +8,7 @@
         <meta name="author" content="Wamiq Ur Rehman">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Styles/base.css">
+        <script src="Libraries/JQuery/jquery-3.7.0.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
         <script src="Scripts/base.js" defer></script>
     </head>
@@ -65,8 +66,8 @@
                     <ul>
                         <li class="user-to-add">
                             <img src="Images/Luffy1.jpeg">
-                            <h4>Monkey D. Luffy</h4>
-                            <button>Add</button>
+                            <h4 id="first-user-name">Monkey D. Luffy</h4>
+                            <button id="first-user-button">Add</button>
                         </li>
                         <li class="user-to-add">
                             <img src="Images/Gintoki1.webp">
@@ -130,7 +131,7 @@
                     </div>
                 </div>
                 <div id="recent-posts">
-                    <div class="post">
+                    <div class="post" id="post-1">
                         <div class="post-meta-data">
                             <img class="post-author-pic" src="Images/MightGuy1.webp">
                             <div class="post-author-name-date">
@@ -144,11 +145,11 @@
                             <img class="post-image" src="Images/MightGuyPost1.jpg">
                         </div>
                         <div class="post-reaction-controls">
-                            <div class="post-reaction-control">
-                                <img class="heart-post" src="Images/HeartIconNormal.png">
+                            <div class="post-like-reaction">
+                                <img class="like-post-button" src="Images/HeartIconNormal.png" data-post-id="post-1">
                                 <p>735</p>
                             </div>
-                            <button class="open-comment-section">Comment [281+]</button>
+                            <button class="open-comment-section" data-post-id="post-1">Comment [281+]</button>
                             <button class="share-post">Share [92+]</button>
                         </div>
                         <div class="comment-section">
@@ -160,7 +161,7 @@
                                         <input class="submit-comment" type="button" value="Submit">
                                     </div>
                                     <div class="comment-media-input">
-                                        <input id="media-file" class="upload-comment-media" type="file" accept="image/*">
+                                        <input class="media-file" id="media-file" class="upload-comment-media" type="file" accept="image/*">
                                         <label class="media-file-label" for="media-file">Upload Media</label>
                                         <input class="cancel-comment" type="button" value="Cancel">
                                     </div>
@@ -210,7 +211,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="post">
+                    <div class="post" id="post-2">
                         <div class="post-meta-data">
                             <img class="post-author-pic" src="Images/Kiba1.jpg">
                             <div class="post-author-name-date">
@@ -224,15 +225,59 @@
                             <img class="post-image" src="Images/KibaAkamaru2.png">
                         </div>
                         <div class="post-reaction-controls">
-                            <div class="post-reaction-control">
-                                <img class="heart-post" src="Images/HeartIconNormal.png">
+                            <div class="post-like-reaction">
+                                <img class="like-post-button" src="Images/HeartIconNormal.png" data-post-id="post-2">
                                 <p>129</p>
                             </div>
-                            <button class="post-comment">Comment [32+]</button>
+                            <button class="open-comment-section" data-post-id="post-2">Comment [32+]</button>
                             <button class="share-post">Share [7+]</button>
                         </div>
+                        <div class="comment-section">
+                            <div class="submit-comment-section">
+                                <img src="Images/Naruto1.jpg">
+                                <form>
+                                    <div class="comment-text-input">
+                                        <input class="submit-comment-text" type="text" placeholder="Post your comment...">
+                                        <input class="submit-comment" type="button" value="Submit">
+                                    </div>
+                                    <div class="comment-media-input">
+                                        <input class="media-file" id="media-file" class="upload-comment-media" type="file" accept="image/*">
+                                        <label class="media-file-label" for="media-file">Upload Media</label>
+                                        <input class="cancel-comment" type="button" value="Cancel">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="post-comments">
+                                <div class="comment">
+                                    <div class="comment-meta-data">
+                                        <img class="comment-author-pic" src="Images/Hinata1.webp">
+                                        <div class="comment-author-name-date">
+                                            <p class="post-author-name">Hinata Hyuga</p>
+                                            <p class="comment-date">11:19 AM, 06 May 2023</p>
+                                        </div>
+                                        <img class="post-dropdown-icon" src="Images/DropDown1.png">
+                                    </div>
+                                    <div class="comment-data">
+                                        <p class="comment-text">Happy Birthday Akamaru 😊</p>
+                                    </div>
+                                </div>
+                                <div class="comment">
+                                    <div class="comment-meta-data">
+                                        <img class="comment-author-pic" src="Images/Ino1.webp">
+                                        <div class="comment-author-name-date">
+                                            <p class="post-author-name">Ino Yamanaka</p>
+                                            <p class="comment-date">10:38 AM, 06 May 2023</p>
+                                        </div>
+                                        <img class="post-dropdown-icon" src="Images/DropDown1.png">
+                                    </div>
+                                    <div class="comment-data">
+                                        <p class="comment-text">Haa he is growing up fast! Happy Birthday Akamaru 🐕</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="post">
+                    <div class="post" id="post-3">
                         <div class="post-meta-data">
                             <img class="post-author-pic" src="Images/Tsunade1.webp">
                             <div class="post-author-name-date">
@@ -246,12 +291,59 @@
                             <img class="post-image" src="Images/Tsunade2.webp">
                         </div>
                         <div class="post-reaction-controls">
-                            <div class="post-reaction-control">
-                                <img class="heart-post" src="Images/HeartIconNormal.png">
+                            <div class="post-like-reaction">
+                                <img class="like-post-button" src="Images/HeartIconNormal.png" data-post-id="post-3">
                                 <p>1039</p>
                             </div>
-                            <button class="post-comment">Comment [132+]</button>
+                            <button class="open-comment-section" data-post-id="post-3">Comment [132+]</button>
                             <button class="share-post">Share [49+]</button>
+                        </div>
+                        <div class="comment-section">
+                            <div class="submit-comment-section">
+                                <img src="Images/Naruto1.jpg">
+                                <form>
+                                    <div class="comment-text-input">
+                                        <input class="submit-comment-text" type="text" placeholder="Post your comment...">
+                                        <input class="submit-comment" type="button" value="Submit">
+                                    </div>
+                                    <div class="comment-media-input">
+                                        <label class="media-file-label">
+                                            <input id="media-file" class="upload-comment-media media-file" type="file" accept="image/*">
+                                            <p>Upload Media</p>
+                                        </label>
+                                        <input class="cancel-comment" type="button" value="Cancel">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="post-comments">
+                                <div class="comment">
+                                    <div class="comment-meta-data">
+                                        <img class="comment-author-pic" src="Images/Sakura1.webp">
+                                        <div class="comment-author-name-date">
+                                            <p class="post-author-name">Sakura Haruno</p>
+                                            <p class="comment-date">11:19 AM, 06 May 2023</p>
+                                        </div>
+                                        <img class="post-dropdown-icon" src="Images/DropDown1.png">
+                                    </div>
+                                    <div class="comment-data">
+                                        <p class="comment-text">Woah you were so pretty then too sensei! 😳</p>
+                                    </div>
+                                </div>
+                                <div class="comment">
+                                    <div class="comment-meta-data">
+                                        <img class="comment-author-pic" src="Images/Jiraiya1.jpg">
+                                        <div class="comment-author-name-date">
+                                            <p class="post-author-name">Jiraiya `The Toad Sage`</p>
+                                            <p class="comment-date">10:38 AM, 06 May 2023</p>
+                                        </div>
+                                        <img class="post-dropdown-icon" src="Images/DropDown1.png">
+                                    </div>
+                                    <div class="comment-data">
+                                        <p class="comment-text">Haa why did you crop me from the picture >~<</p>
+                                        <img class="comment-image" src="Images/Jiraiya2.webp">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

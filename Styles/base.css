@@ -294,27 +294,27 @@ nav a {
     gap: 16px;
 }
 
-.heart-post {
+.like-post-button {
     width: 48px;
     border: 0px;
     content: url(".././Images/HeartIconNormal.png");
 }
 
-.heart-post-pressed {
+.like-post-button-pressed {
     width: 48px;
     border: 0px;
     content: url(".././Images/HeartIconPressed.png");
 }
 
-.heart-post:hover {
+.like-post-button:hover {
     content: url(".././Images/HeartIconNormalHover.png");
 }
 
-.heart-post-pressed:hover {
+.like-post-button-pressed:hover {
     content: url(".././Images/HeartIconPressedHover.png");
 }
 
-.post-reaction-control {
+.post-like-reaction {
     display: grid;
     grid-template-columns: auto auto;
     border: 0px solid black;
