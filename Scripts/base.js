@@ -55,15 +55,17 @@ function setupOpenCommentSectionButtons() {
 }
 
 function setupMediaFileButtons(){
-    var mediaFileButtons = $(".media-file");
+    var mediaFileButtons = $(".comment-media-file-button");
     for (var i = 0; i < mediaFileButtons.length; i++) {
         var mediaFileButton = mediaFileButtons[i];
-        mediaFileButton.addEventListener("change", (event) => {
-            const [file] = event.target.files;
+        mediaFileButton.addEventListener("change", function (event) {
+            var mediaFileButton = $(this);
+            var postID = "#" + mediaFileButton.attr("data-post-id");
+            const [file] = mediaFileButton[0].files;
             const { name: fileName, size } = file;
             const fileSize = (size / 1000).toFixed(2);
             const fileNameAndSize = `${fileName} - ${fileSize}KB`;
-            event.target.nextElementSibling.innerText = fileNameAndSize;
+            $(postID + " .comment-media-file-label p").html(fileNameAndSize);
         });
     }
 }
@@ -78,7 +80,7 @@ function setupSubmitCommentButtons(){
             var postID = "#" + submitCommentButton.attr("data-post-id");
 
             var comment_text = $(postID + " .submit-comment-text")[0];
-            var media_file = $(postID + " .media-file")[0];
+            var media_file = $(postID + " .comment-media-file-button")[0];
             if (comment_text.value === "" && media_file.files.length === 0)
                 return console.log("Empty form!");
             var fileName = "";
@@ -98,7 +100,7 @@ function setupSubmitCommentButtons(){
             $(postID + " .post-comments")[0].insertAdjacentHTML("beforeend", filled);
             media_file.value = "";
             comment_text.value = "";
-            $(postID + " .media-file-label").html("Upload Media");
+            $(postID + " .comment-media-file-label p").html("Upload Media");
         });
     }
 }

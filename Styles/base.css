@@ -367,10 +367,10 @@ nav a {
     gap: 8px;
 }
 
-label[for="media-file"] {
+.comment-media-file-label {
     align-self: center;
     text-align: center;
-    min-height: 24px;
+    height: 24px;
     min-width: 72px;
     font-size: 20px;
     border-radius: 4px;
@@ -380,11 +380,10 @@ label[for="media-file"] {
     border: 1px solid black;
 }
 
-input[type="file"] {
+.comment-media-file-button {
     opacity: 0;
     width: 0.1px;
     height: 0.1px;
-    position: absolute;
 }
 
 input:hover + label {
