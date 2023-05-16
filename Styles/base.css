@@ -19,29 +19,32 @@ html, body {
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace;
     background-color: #F6F1F1;
-    color: white;
+    color: #FFFFFF;
 }
 
 p {
     margin: 0;
 }
 
-input {
+body, input {
     font-family: 'Courier New', Courier, monospace;
+}
+
+input {
     border-radius: 4px;
     font-size: 20px;
     padding-left: 8px;
+}
+
+input:focus {
+    outline: none;
 }
 
 h2 {
     font-size: 28px;
 }
 
-input:focus {
-    outline: none;
-}
 
 img {
     border-radius: 8px;
@@ -65,7 +68,7 @@ button{
 
 button, input[type=button], input[type=submit] {
     background-color: #EEEEEE;
-    color: black;
+    color: #000000;
 }
 
 button:hover, input[type=button]:hover, input[type=submit]:hover {
@@ -104,8 +107,7 @@ header a:active, .tag:active {
 }
 
 header {
-    background-color: #146C94;
-    min-height: fit-content;
+    background-color: #146C94;  
     padding: 8px;
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -114,11 +116,9 @@ header {
 
 header h1 {
     margin: 0px;
-    align-self: center;
 }
 
 #search-form {
-    justify-self: stretch;
     align-self: center;
 }
 
@@ -196,15 +196,19 @@ nav a {
 
 /* Submit post ends here */
 
-#social-suggestions {
+#social-suggestions, #notifications {
     background-color: #19A7CE;
     padding-bottom: 16px;
 }
 
-#social-suggestions li {
+#social-suggestions li, #notifications li {
     margin-bottom: 8px;
     margin-left: 8px;
     padding: 0px 8px 12px 8px;
+}
+
+#notifications h2 {
+    text-align: center;
 }
 
 .user-to-add {
@@ -212,15 +216,36 @@ nav a {
     grid-template-columns: 70px 4fr 1fr;
     column-gap: 8px;
 }
-.user-to-add h4 {
+
+.notification {
+    display: grid;
+    grid-template-columns: 70px auto;
+    column-gap: 8px;
+}
+.user-to-add h4, .notification h4 {
     font-size: 24px;
     align-self: center;
     margin: 0;
 }
-.user-to-add img, #submit-post img, .post-author-pic, .post-dropdown-icon, .submit-comment-section img, .comment-author-pic {
+
+.notification h4 {
+    font-size: 20px;
+}
+
+.user-to-add img, .notification img, #submit-post img, .post-author-pic,
+.post-dropdown-icon, .submit-comment-section img, .comment-author-pic {
     width: 64px;
     height: auto;
     max-height: 96px;
+}
+
+.notification img {
+    align-self: center;
+}
+
+.notification-time {
+    color: #CCCCCC;
+    font-size: 18px;
 }
 
 #recent-posts {
