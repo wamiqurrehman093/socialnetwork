@@ -1,6 +1,7 @@
 /* JQuery */
 
 $(document).ready(function () {
+    setupPostSubmission();
     setupLikeButtons();
     setupCommentButtons();
 });
@@ -9,6 +10,60 @@ const months = [
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];
+
+/* Post Submission */
+function setupPostSubmission(){
+    setupPostMediaFileButton();
+    setupSubmitPostButton();
+}
+
+function setupPostMediaFileButton() {
+    var mediaFileButton = $(".post-media-file-button")[0];
+    mediaFileButton.addEventListener("change", function (event) {
+        var mediaFileButton = $(this);
+        const [file] = mediaFileButton[0].files;
+        const { name: fileName, size } = file;
+        const fileSize = (size / 1000).toFixed(2);
+        const fileNameAndSize = `${fileName} - ${fileSize}KB`;
+        $(".post-media-file-label p").html(fileNameAndSize);
+    });
+}
+
+function setupSubmitPostButton(){
+    var submitPostButton = $(".submit-post-button")[0];
+    submitPostButton.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        var submitPostButton = $(this);
+
+        var postText = $(".submit-post-text")[0];
+        var mediaFile = $(".post-media-file-button")[0];
+        if (postText.value === "" && mediaFile.files.length === 0)
+            return console.log("Empty form!");
+        var fileName = "";
+        var templateId = "#post-template";
+        if (mediaFile.files.length > 0) {
+            templateId = "#image-post-template";
+            var [file] = mediaFile.files;
+            fileName = file.name;
+        }
+        var dateString = getDateString();
+        var postNumber = $("#recent-posts").length + 1;
+        var data = {
+            author: {name: "Naruto Uzumaki", image: "Naruto1.jpg"},
+            post: {
+                date: dateString, text: postText.value, image: fileName, number: postNumber,
+                numberOfLikes: 0, numberOfComments: 0, numberOfShares: 0
+            }
+        };
+        var template = Handlebars.compile($(templateId).html());
+        var filled = template(data);
+        $("#recent-posts")[0].insertAdjacentHTML("beforeend", filled);
+        mediaFile.value = "";
+        postText.value = "";
+        $(".post-media-file-label p").html("Upload Media");
+    });
+}
 
 /* Like Posts */
 
@@ -39,7 +94,7 @@ function processLike(likeButton, likeLabel) {
 
 function setupCommentButtons() {
     setupOpenCommentSectionButtons();
-    setupMediaFileButtons();
+    setupCommentMediaFileButtons();
     setupSubmitCommentButtons();
 }
 
@@ -54,7 +109,7 @@ function setupOpenCommentSectionButtons() {
     }
 }
 
-function setupMediaFileButtons(){
+function setupCommentMediaFileButtons(){
     var mediaFileButtons = $(".comment-media-file-button");
     for (var i = 0; i < mediaFileButtons.length; i++) {
         var mediaFileButton = mediaFileButtons[i];
