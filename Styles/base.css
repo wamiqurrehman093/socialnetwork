@@ -232,8 +232,7 @@ nav a {
     font-size: 20px;
 }
 
-.user-to-add img, .notification img, #submit-post img, .post-author-pic,
-.post-dropdown-icon, .submit-comment-section img, .comment-author-pic, .submit-post-section img {
+.icon-image {
     width: 64px;
     height: auto;
     max-height: 96px;
