@@ -13,6 +13,93 @@
         <script src="Scripts/base.js" defer></script>
     </head>
     <body>
+        <script type="text/x-handlebars-template" id="post-template">
+            <div class="post" id="post-{{post.number}}">
+                <div class="post-meta-data">
+                    <img class="post-author-pic" src="Images/{{author.image}}">
+                    <div class="post-author-name-date">
+                        <p class="post-author-name">{{author.name}}</p>
+                        <p class="post-date">{{post.date}}</p>
+                    </div>
+                    <img class="post-dropdown-icon" src="Images/DropDown1.png">
+                </div>
+                <div class="post-data">
+                    <p class="post-text">{{post.text}}</p>
+                </div>
+                <div class="post-reaction-controls">
+                    <div class="post-like-reaction">
+                        <img class="like-post-button" src="Images/HeartIconNormal.png" data-post-id="post-{{post.number}}">
+                        <p>{{post.numberOfLikes}}</p>
+                    </div>
+                    <button class="open-comment-section" data-post-id="post-{{post.number}}">Comment [{{post.numberOfComments}}+]</button>
+                    <button class="share-post">Share [{{post.numberOfShares}}+]</button>
+                </div>
+                <div class="comment-section">
+                    <div class="submit-comment-section">
+                        <img src="Images/{{author.image}}">
+                        <form>
+                            <div class="comment-text-input">
+                                <input class="submit-comment-text" type="text" value="" placeholder="Post your comment...">
+                                <input class="submit-comment-button" data-post-id="post-{{post.number}}" type="button" value="Submit">
+                            </div>
+                            <div class="comment-media-input">
+                                <label class="comment-media-file-label">
+                                    <p>Upload Media</p>
+                                    <input class="comment-media-file-button" data-post-id="post-{{post.number}}" type="file" accept="image/*">
+                                </label>
+                                <input class="cancel-comment-button" type="button" value="Cancel">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="post-comments">
+                    </div>
+                </div>
+            </div>
+        </script>
+        <script type="text/x-handlebars-template" id="image-post-template">
+            <div class="post" id="post-{{post.number}}">
+                <div class="post-meta-data">
+                    <img class="post-author-pic" src="Images/{{author.image}}">
+                    <div class="post-author-name-date">
+                        <p class="post-author-name">{{author.name}}</p>
+                        <p class="post-date">{{post.date}}</p>
+                    </div>
+                    <img class="post-dropdown-icon" src="Images/DropDown1.png">
+                </div>
+                <div class="post-data">
+                    <p class="post-text">{{post.text}}</p>
+                    <img class="post-image" src="Images/{{post.image}}">
+                </div>
+                <div class="post-reaction-controls">
+                    <div class="post-like-reaction">
+                        <img class="like-post-button" src="Images/HeartIconNormal.png" data-post-id="post-{{post.number}}">
+                        <p>{{post.numberOfLikes}}</p>
+                    </div>
+                    <button class="open-comment-section" data-post-id="post-{{post.number}}">Comment [{{post.numberOfComments}}+]</button>
+                    <button class="share-post">Share [{{post.numberOfShares}}+]</button>
+                </div>
+                <div class="comment-section">
+                    <div class="submit-comment-section">
+                        <img src="Images/{{author.image}}">
+                        <form>
+                            <div class="comment-text-input">
+                                <input class="submit-comment-text" type="text" value="" placeholder="Post your comment...">
+                                <input class="submit-comment-button" data-post-id="post-{{post.number}}" type="button" value="Submit">
+                            </div>
+                            <div class="comment-media-input">
+                                <label class="comment-media-file-label">
+                                    <p>Upload Media</p>
+                                    <input class="comment-media-file-button" data-post-id="post-{{post.number}}" type="file" accept="image/*">
+                                </label>
+                                <input class="cancel-comment-button" type="button" value="Cancel">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="post-comments">
+                    </div>
+                </div>
+            </div>
+        </script>
         <script type="text/x-handlebars-template" id="comment-template">
             <div class="comment">
                 <div class="comment-meta-data">
@@ -121,7 +208,7 @@
                 </div>
             </div>
             <div id="feed">
-                <div id="submit-post">
+                <!-- <div id="submit-post">
                     <img src="Images/Naruto1.jpg">
                     <div id="submit-post-inputs">
                         <input id="submit-post-text" type="text" placeholder="Your post...">
@@ -129,6 +216,22 @@
                         <input id="upload-media" type="button" value="Upload Images/Videos">
                         <input id="cancel-post" type="button" value="Cancel">
                     </div>
+                </div> -->
+                <div class="submit-post-section">
+                    <img src="Images/Naruto1.jpg">
+                    <form>
+                        <div class="post-text-input">
+                            <input class="submit-post-text" type="text" value="" placeholder="Write your post...">
+                            <input class="submit-post-button" type="button" value="Submit">
+                        </div>
+                        <div class="post-media-input">
+                            <label class="post-media-file-label">
+                                <p>Upload Media</p>
+                                <input class="post-media-file-button" type="file" accept="image/*">
+                            </label>
+                            <input class="cancel-post-button" type="button" value="Cancel">
+                        </div>
+                    </form>
                 </div>
                 <div id="recent-posts">
                     <div class="post" id="post-1">

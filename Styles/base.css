@@ -233,7 +233,7 @@ nav a {
 }
 
 .user-to-add img, .notification img, #submit-post img, .post-author-pic,
-.post-dropdown-icon, .submit-comment-section img, .comment-author-pic {
+.post-dropdown-icon, .submit-comment-section img, .comment-author-pic, .submit-post-section img {
     width: 64px;
     height: auto;
     max-height: 96px;
@@ -356,14 +356,14 @@ nav a {
     display: none;
 }
 
-.submit-comment-section {
+.submit-comment-section, .submit-post-section {
     display: grid;
     grid-template-columns: 70px auto;
     gap: 8px;
     margin: 8px 16px 24px 16px;
 }
 
-.submit-comment-section form {
+.submit-comment-section form, .submit-post-section form {
     display: grid;
     grid-template-columns: auto;
     align-self: center;
@@ -372,7 +372,7 @@ nav a {
     row-gap: 2px;
 }
 
-.comment-text-input {
+.comment-text-input, .post-text-input {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 8px;
@@ -381,18 +381,18 @@ nav a {
 .submit-comment-text {
     
 }
-.submit-comment-button, .cancel-comment-button {
+.submit-comment-button, .cancel-comment-button, .submit-post-button, .cancel-post-button {
     align-self: center;
     width: 120px;
 }
 
-.comment-media-input {
+.comment-media-input, .post-media-input {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 8px;
 }
 
-.comment-media-file-label {
+.comment-media-file-label, .post-media-file-label {
     align-self: center;
     text-align: center;
     height: 24px;
@@ -405,7 +405,7 @@ nav a {
     border: 1px solid black;
 }
 
-.comment-media-file-button {
+.comment-media-file-button, .post-media-file-button {
     opacity: 0;
     width: 0.1px;
     height: 0.1px;
