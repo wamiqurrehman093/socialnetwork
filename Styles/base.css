@@ -154,6 +154,9 @@ nav a {
     text-align: center;
 }
 
+.full-page-link {
+    margin: 12px 0px 0px 0px;
+}
 .full-page-link a {
     font-size: 24px;
 }
@@ -204,6 +207,7 @@ nav a {
 #social-suggestions li, #notifications li {
     margin-bottom: 8px;
     margin-left: 8px;
+    margin-right: 8px;
     padding: 0px 8px 12px 8px;
 }
 
@@ -211,7 +215,7 @@ nav a {
     text-align: center;
 }
 
-.user-to-add {
+.user-to-add, .group-to-join {
     display: grid;
     grid-template-columns: 70px 4fr 1fr;
     column-gap: 8px;
@@ -221,16 +225,31 @@ nav a {
     display: grid;
     grid-template-columns: 70px auto;
     column-gap: 8px;
+    border: 0px solid #146C94;
+    border-radius: 8px;
 }
-.user-to-add h4, .notification h4 {
+
+.notification:hover {
+    background-color: #146C94;
+}
+
+.user-to-add h4, .group-to-join h4, .notification h4 {
     font-size: 24px;
     align-self: center;
     margin: 0;
 }
 
-.notification h4 {
-    font-size: 20px;
+.user-to-add h4:hover, .group-to-join h4:hover {
+    text-decoration: underline;
 }
+
+.notification img, .notification h4 {
+    font-size: 20px;
+    margin: 0;
+    margin-top: 8px;
+}
+
+
 
 .icon-image {
     width: 64px;
